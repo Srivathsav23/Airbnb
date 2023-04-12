@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  background: url("./assets/bgimg.jpeg") !important;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)) !important;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

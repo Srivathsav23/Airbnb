@@ -1,0 +1,20 @@
+#calendar {
+    height: fit-content;
+}
+
+.fc-toolbar-title {
+    color: azure;
+}
+
+.fc-button-primary {
+    background-color: #ff2146 !important;
+}
+
+.fc-col-header {
+    background-color: #ff2146;
+    color: black !important;
+}
+
+.fc-daygrid-body {
+    color: #ff2146;
+}
