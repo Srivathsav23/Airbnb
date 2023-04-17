@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { Link, Redirect } from 'react-router-dom';
+import React from "react";
 import { AiOutlineLogout } from "react-icons/ai";
 import { FaUserCircle, FaAirbnb } from "react-icons/fa";
-import axios from 'axios';
 //style={{ position: 'fixed', top: 0 }}
 const Header = () => {
 
