@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import Feed from './NewsFeed';
-
+import Feed from './Feed';
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -26,22 +25,17 @@ class Login extends React.Component {
 
   onSubmit = (e) => {
     console.log("success")
-    let { history } = this.props
-    let ele;
+    let { history } = this.props;
     e.preventDefault()
     let olddata = localStorage.getItem('formdata')
-    //console.log(olddata)
     let oldArr = JSON.parse(olddata)
-    //console.log(oldArr[])
 
     oldArr.map(arr => {
       if (this.state.email.length > 0 && this.state.password.length > 0) {
-        //console.log("a")
         if (arr.email == this.state.email && (arr.password == this.state.password)) {
           console.log(arr)
           let user = this.state.email;
-          sessionStorage.setItem("@user", true)
-          history.push({ pathname: "/Feed", user: this.state.email });
+          sessionStorage.setItem("@user", user);
           window.location.reload()
         } else {
           this.setState({ error: 'Please check your inputs' })
@@ -107,7 +101,7 @@ class Login extends React.Component {
                 </div>
               </form>
             </div>
-          </div>
+          </div >
           <div
             className="rounded-lg mr-20 mt-40 p-12"
             style={{
@@ -134,7 +128,7 @@ class Login extends React.Component {
               </Link>
             </span>
           </div>
-        </div>
+        </div >
       </>
     )
   }

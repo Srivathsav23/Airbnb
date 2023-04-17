@@ -2,7 +2,7 @@ import { history } from "./history";
 import { Route, Router } from "react-router-dom";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-import NewsFeed from "./pages/NewsFeed";
+import Feed from "./pages/Feed";
 import Signup from "./pages/Signup";
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
         <>
           <Router history={history}>
             <Route path="/profile" exact component={Profile} />
-            <Route path="/Feed" exact component={NewsFeed} />
+            <Route path="/" exact component={Feed} />
           </Router>
         </> :
         <Router history={history}>

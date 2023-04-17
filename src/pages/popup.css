@@ -1,38 +1,17 @@
-#Calendar1 .fc-toolbar-title {
-    color: azure;
-}
-
-#Calendar1 .fc-media-screen {
-    margin-left: 50px;
-    width: 1200px;
-    height: 1000px;
-}
-
-#Calendar1 .fc-button-primary {
-    background-color: #ff2146 !important;
-}
-
-#Calendar1 .fc-col-header {
-    background-color: #ff2146;
-    color: white !important;
-}
-
-#Calendar1 .fc-daygrid-body {
-    color: #ff2146;
-}
-
 .popup-window {
     position: fixed;
     top: 20%;
     left: 20%;
-    margin-left: 300px;
+    margin-left: 30%;
     margin-top: 1%;
     z-index: 1000;
     background-color: white;
     border: 1px solid gray;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     padding: 10px;
-
+    width: 550px;
+    /* Set the width of the popup window */
+    height: 550px;
     /* Set the height of the popup window */
     overflow: hidden;
     /* Prevent scrolling */
@@ -40,6 +19,23 @@
 
 .popup-content {
     height: 100%;
-    color: white;
+    color: black;
     /* Set the height of the popup content to 100% */
+}
+
+#cal2 .fc-media-screen{
+    width: 500px;
+    height: 500px;
+    color: black;
+}
+#cal2 .fc-toolbar-title {
+    color: black;
+}
+#cal2 .fc .fc-daygrid-day-frame {
+    min-height: 2%;
+    position: relative;
+}
+#cal2 .fc-day {
+    height:20px;
+    width: auto;
 }

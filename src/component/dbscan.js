@@ -1,4 +1,4 @@
-import { DBSCAN } from "ml-kmeans";
+const dbscan = require("dbscanjs");
 
 function euclideanDistance(a, b) {
     let sum = 0;
@@ -8,25 +8,61 @@ function euclideanDistance(a, b) {
     return Math.sqrt(sum);
 }
 
-function detectAnomalies(data, eps, minPts) {
-    const dbscan = new DBSCAN({
-        eps,
-        minPts,
-        distanceFunction: euclideanDistance,
-    });
+function detectAnomalies(data,choice) {
+    console.log(data);
+    let datasx = {};
+    const timestamps = data.map(d => d.Date);
+    let concentrations, minpts, eps = 5;
+    if (choice == "0") {
+        concentrations = data.map(d => d.NO2);
+        minpts = 5;
+    }
+    else if (choice == "1") {
+        concentrations = data.map(d => d.SO2);
+        minpts = 3;
+    }
+    else if (choice == "2") {
+        concentrations = data.map(d => d['RSPM/PM10']);
+        minpts = 15;
+    }
+    else if (choice == "3") {
+        concentrations = data.map(d => d.SPM);
+        minpts = 30;
+        eps = 7;
+    }
+    const X = [];
+    for (let i = 0; i < timestamps.length; i++) {
+        X.push([timestamps[i], concentrations[i]]);
+    }
+    console.log(X);
+    const clusters = dbscan(X, euclideanDistance, minpts, eps);
+    console.log(clusters);
+    let count1 = 0, count0 = 0;
+    for (let i in clusters) {
+        if (clusters[i] == -1)
+            count0++;
+        else
+            count1++;
+    }
 
-   
-    const dataArray = data.map((d) => [d.no2_concentration]);
-
-    const clusters = dbscan.fit(dataArray);
-
+    console.log(count1)
+    console.log(count0)
     const newData = data.map((d, i) => {
         if (clusters[i] === -1) {
-            return { ...d, prediction: "anomaly" };
+            return { ...d, prediction: -1 };
         } else {
-            return { ...d, prediction: "normal" };
+            return { ...d, prediction: 1 };
         }
     });
-
+    console.log(newData);
+    const acc = newData.map(x => {
+        if (x.predictions == x.prediction)
+            return 1;
+        else
+            return -1;
+    });
+    console.log("accuracy = ", (acc.filter(x => x == 1).length) / newData.length);
     return newData;
 }
+
+export default detectAnomalies;

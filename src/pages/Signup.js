@@ -1,14 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-/*
-const Signup = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
-  const [password, setPassword] = useState();
-  const [confirm_password, setConfirmPassword] = useState();
-  const [dob, setDob] = useState();
-*/
+
 
 class Signup extends React.Component {
 
@@ -20,7 +12,8 @@ class Signup extends React.Component {
       phone: '',
       password: '',
       confirm_password: '',
-      dob: ''
+      dob: '',
+      data: null
     }
   }
 
@@ -55,7 +48,8 @@ class Signup extends React.Component {
       phone: this.state.phone,
       password: this.state.password,
       confirm_password: this.state.confirm_password,
-      dob: this.state.dob
+      dob: this.state.dob,
+      data: null
     }
     let olddata = localStorage.getItem('formdata');
     if (olddata == null) {
