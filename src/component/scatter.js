@@ -32,11 +32,11 @@ const ScatterPlot = ({ data, choice }) => {
 
     let data_xy = data.map((record) => ({
         x: new Date(record.date).getTime(),
-        y: parseFloat(record.NO2),
+        y: parseFloat(record[selGas]),
     }))
     let anomalies_xy = anomalies.map((record) => ({
         x: new Date(record.date).getTime(),
-        y: parseFloat(record.NO2),
+        y: parseFloat(record[selGas]),
     }))
     console.log(data_xy);
 
@@ -51,7 +51,7 @@ const ScatterPlot = ({ data, choice }) => {
                 <CartesianGrid />
                 <XAxis dataKey="x" type="number" domain={['auto', 'auto']} tickFormatter={(tick) => new Date(tick).toLocaleDateString()} name="Date" />
                 <YAxis dataKey="y" type="number" domain={['auto', 'auto']} name="concentration" unit="μg/m3" />
-                <Tooltip cursor={{ strokeDasharray: '3 3' }} labelFormatter={(value) => { new Date((value).toLocaleDateString()) }} />
+                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                 <Legend />
                 <Scatter name="Normal Data" data={data_xy} fill="green" />
                 <Scatter name="Anomalies" data={anomalies_xy} fill="red" />

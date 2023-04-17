@@ -6,6 +6,7 @@ import Header from '../component/Header';
 import detectAnomalies from '../component/dbscan';
 import { ConstructionOutlined } from '@mui/icons-material';
 import ScatterPlot from '../component/scatter';
+import QuestionDialog from '../component/dialog';
 
 function csvprocess(csvData) {
   const lines = csvData.split("\r\n");
@@ -197,8 +198,14 @@ const Feed = () => {
     <>
       <Header />
       <div className="flex flex-col bg-white min-w-0 break-words ml-10 mt-5 pt-5 pl-5 mb-6 pb-5 shadow-xl rounded-lg" style={{ width: 'fit-content' }}>
-        <label for="csvFile">Upload a CSV File:</label>
-        <input type="file" id="csvFile" accept=".csv" onChange={submitBtn} />
+        <div className='flex'>
+          <label for="csvFile">Upload a CSV File:</label>
+          <QuestionDialog
+            title="How to ?"
+            content="Upload Time-series CSV File. Date should be in YYYY-MM-DD Format."
+          />
+        </div>  
+        <input type="file" id="csvFile" accept=".csv" onChange={submitBtn} />        
       </div>
       <div className='flex'>
         <div id='Calendar1'>
@@ -275,15 +282,15 @@ const Feed = () => {
             </button>
             {
               showPlot && (
-                <div className="popup-window bg-gray-200 rounded-lg p-5" style={{ left: '-100px', overflow: 'hidden',width:'850px',height:'450px' }} >
+                <div className="popup-window bg-gray-200 rounded-lg p-5" style={{ left: '-100px', overflow: 'hidden', width: '850px', height: '450px' }} >
                   <div className="popup-header">
                     <button onClick={handleClosePlot} className="text-pink-700">Close</button>
                   </div>
                   <div className="popup-content">
-                    <ScatterPlot data={csvData} selectedGas={selectedValue} />
+                    <ScatterPlot data={csvData} choice={selectedValue} />
                   </div>
                 </div>
-              )              
+              )
             }
           </div>
         </div>

@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import axios from "axios";
 import './popup.css';
 
 function displayCalendar(jsonData) {
     function checkpred(pred) {
-        return pred.prediction == 1;
+        return pred.prediction === 1;
     }
     function checkanom(pred) {
-        return pred.prediction == -1;
+        return pred.prediction === -1;
     }
     let anomalies = jsonData;
     let jsonData1 = jsonData.filter(checkpred);
@@ -49,6 +48,7 @@ const Profile = () => {
     const [showCalendar, setShowCalendar] = useState(false);
     let [startDate, setStartDate] = useState();
     let [events, setEvents] = useState([]);
+    console.log(startDate);
 
     const handleButtonClick = () => {
         let eventData = displayCalendar(pdata);

@@ -8,7 +8,7 @@ function euclideanDistance(a, b) {
     return Math.sqrt(sum);
 }
 
-function detectAnomalies(data,choice) {
+function detectAnomalies(data, choice) {
     console.log(data);
     let datasx = {};
     const timestamps = data.map(d => d.Date);
