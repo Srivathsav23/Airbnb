@@ -22,7 +22,9 @@
     color: black;
     /* Set the height of the popup content to 100% */
 }
-
+#cal2 .fc-button-primary {
+    background-color: #6EB5D6 !important;
+}
 #cal2 .fc-media-screen{
     width: 500px;
     height: 500px;

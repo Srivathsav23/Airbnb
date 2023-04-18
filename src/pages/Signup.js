@@ -72,7 +72,7 @@ class Signup extends React.Component {
         <div className="min-h-screen flex flex-col">
           <div className="m-20 bg-white container rounded-lg max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-2">
             <div className="px-6 py-8 rounded-lg shadow-md text-black w-full">
-              <h1 className="mb-8 text-3xl text-center" style={{ color: '#ff385c' }}>Sign up</h1>
+              <h1 className="mb-8 text-3xl text-center" style={{ color: '#ADD8E6' }}>Sign up</h1>
               <form onSubmit={this.onSubmit}>
                 <input
                   type="text"
@@ -130,13 +130,13 @@ class Signup extends React.Component {
                   className="mt-10 w-full text-center py-3 rounded-lg text-white focus:outline-none my-1 hover:font-bold"
                   style={{
                     background:
-                      "#ff385c",
+                      "#ADD8E6",
                   }}
                 >Create Account</button>
               </form>
               <div className="text-grey-dark mt-6">
                 Already have an account?
-                <Link to="/" className="no-underline border-b border-blue text-blue hover:font-bold" href="../login/" style={{ color: '#ff385c' }}>
+                <Link to="/" className="no-underline border-b border-blue text-blue hover:font-bold" href="../login/" style={{ color: '#ADD8E6' }}>
                   Log in
                 </Link>.
               </div>

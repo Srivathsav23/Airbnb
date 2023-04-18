@@ -131,7 +131,7 @@ const Profile = () => {
                                 <div className="flex flex-wrap justify-center">
                                     <button onClick={() => {
                                         window.location.replace('/');
-                                    }} className="mt-5 h-10 bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
+                                    }} className="mt-5 h-10 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button" style={{ backgroundColor: "#6EB5D6" }}>
                                         Back
                                     </button>
                                     <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
@@ -144,7 +144,7 @@ const Profile = () => {
                                             <button onClick={() => {
                                                 sessionStorage.removeItem('@user');
                                                 window.location.replace('/');
-                                            }} className="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
+                                            }} className="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button" style={{ backgroundColor: "#6EB5D6" }}>
                                                 Logout
                                             </button>
                                         </div>
@@ -158,7 +158,7 @@ const Profile = () => {
                                                 localStorage.setItem("formdata", JSON.stringify(oldArr));
                                                 sessionStorage.removeItem('@user');
                                                 window.location.replace('/');
-                                            }} className="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
+                                            }} className="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button" style={{ backgroundColor: "#6EB5D6" }}>
                                                 Delete Account
                                             </button>
                                         </div>
@@ -212,15 +212,15 @@ const Profile = () => {
                                     }
                                 </div>
                                 <div className="flex flex-col">
-                                    <button onClick={csvDownload} className="w-15 mt-5 ml-10 h-10 bg-pink-600 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
+                                    <button onClick={csvDownload} className="w-15 mt-5 ml-10 h-10 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button" style={{ backgroundColor: "#6EB5D6" }}>
                                         Download
                                     </button>
-                                    <button onClick={handleButtonClick} className="w-15 mt-5 ml-10 h-10 bg-pink-600 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
+                                    <button onClick={handleButtonClick} className="w-15 mt-5 ml-10 h-10 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button" style={{ backgroundColor: "#6EB5D6" }}>
                                         View
                                     </button>
                                     {
                                         showCalendar && (
-                                            <div className="popup-window bg-gray-200 rounded-lg p-5" style={{left:'20px',overflow:'hidden'}} >
+                                            <div className="popup-window bg-gray-200 rounded-lg p-5" style={{ left: '20px', overflow: 'hidden' }} >
                                                 <div className="popup-header">
                                                     <button onClick={handleCloseCalendar} className="text-pink-700">Close</button>
                                                 </div>

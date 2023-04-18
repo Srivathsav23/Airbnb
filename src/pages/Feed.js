@@ -7,6 +7,9 @@ import detectAnomalies from '../component/dbscan';
 import { ConstructionOutlined } from '@mui/icons-material';
 import ScatterPlot from '../component/scatter';
 import QuestionDialog from '../component/dialog';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function csvprocess(csvData) {
   const lines = csvData.split("\r\n");
@@ -103,9 +106,12 @@ const Feed = () => {
   useEffect(() => {
     setMostRecentSelectedValue(selectedValue);
     console.log("Selected option changed to:", selectedValue);
-    const file = new File([ogcsv], 'data.csv', { type: 'text/csv' });
-    const eventx = { target: { files: [file] } };
-    submitBtn(eventx);
+    if (ogcsv != undefined) {
+      const file = new File([ogcsv], 'data.csv', { type: 'text/csv' });
+      const eventx = { target: { files: [file] } };
+      submitBtn(eventx);
+    }
+
 
   }, [selectedValue]);
 
@@ -128,12 +134,12 @@ const Feed = () => {
   oldArr = oldArr.map(arr => (arr.email != sessionStorage.getItem('@user')));
 
   const submitBtn = (event) => {
-
+    console.log(event);
     const file = event.target.files[0];
     console.log(file);
     setOgCsv(file);
     console.log(selectedValue);
-
+    toast.success("File updated successfully!");
     const fileReader = new FileReader();
     fileReader.readAsText(file);
     fileReader.onload = () => {
@@ -142,7 +148,6 @@ const Feed = () => {
       const data = csvprocess(csvDatax);
       const updateData = detectAnomalies(data, selectedValue);
       setCsvData(updateData);
-
       profileData.data = [];
       profileData.data.push(updateData);
       oldArr.push(profileData);
@@ -204,8 +209,8 @@ const Feed = () => {
             title="How to ?"
             content="Upload Time-series CSV File. Date should be in YYYY-MM-DD Format."
           />
-        </div>  
-        <input type="file" id="csvFile" accept=".csv" onChange={submitBtn} />        
+        </div>
+        <input type="file" id="csvFile" accept=".csv" onChange={submitBtn} />
       </div>
       <div className='flex'>
         <div id='Calendar1'>
@@ -226,9 +231,10 @@ const Feed = () => {
             initialView="dayGridMonth"
             events={events}
           />
+
         </div>
         <div>
-          <button onClick={downloadCSV} className='ml-10 mt-1 bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150'>Download CSV</button>
+          <button onClick={downloadCSV} className='ml-10 mt-1 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150' style={{ backgroundColor:"#6EB5D6"}}>Download CSV</button>
           <div className='flex flex-col text-white m-10 font-bold'>
             <label>
               <input
@@ -277,7 +283,7 @@ const Feed = () => {
             </label>
           </div>
           <div>
-            <button onClick={handleShowPlot} className="w-15 mt-5 ml-10 h-10 bg-pink-600 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type='button'>
+            <button onClick={handleShowPlot} className="w-15 mt-5 ml-10 h-10 bg-pink-600 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" style={{ backgroundColor: "#6EB5D6" }} type='button'>
               Show Scatter Plot
             </button>
             {
@@ -293,6 +299,7 @@ const Feed = () => {
               )
             }
           </div>
+          <ToastContainer />
         </div>
       </div>
     </>

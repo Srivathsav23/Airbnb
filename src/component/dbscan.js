@@ -11,7 +11,7 @@ function euclideanDistance(a, b) {
 function detectAnomalies(data, choice) {
     console.log(data);
     let datasx = {};
-    const timestamps = data.map(d => d.Date);
+    const timestamps = data.map(d => Math.floor((new Date(d.date).getTime()) / 86400000)+25569);
     let concentrations, minpts, eps = 5;
     if (choice == "0") {
         concentrations = data.map(d => d.NO2);

@@ -56,7 +56,7 @@ class Login extends React.Component {
 
           <div className="pt-40 pl-20">
             <div className="card bg-white shadow-md rounded-lg px-4 py-4 mb-6 "
-              style={{ color: '#ff2146' }}>
+              style={{ color: '#87CEEB' }}>
               <form onSubmit={this.onSubmit}>
                 <p className="error">
                   {this.state.error}
@@ -67,7 +67,7 @@ class Login extends React.Component {
                     Welcome back
                   </h2>
                 </div>
-                <h2 className="text-xl text-center font-semibold text-gray-800 mb-2" style={{ color: '#ff385c' }}>
+                <h2 className="text-xl text-center font-semibold text-gray-800 mb-2" style={{ color: '#ADD8E6' }}>
                   Log In
                 </h2>
                 <input
@@ -90,12 +90,12 @@ class Login extends React.Component {
                   <Link
                     to="/signup"
                     className="text-gray-600"
-                    style={{ color: '#ff385c' }}
+                    style={{ color: '#87CEEB' }}
                   >
                     New User? Signup
                   </Link>
 
-                  <button type="submit" className="text-white  px-2 py-1 rounded" style={{ background: '#ff385c' }} onClick={this.props.onLogin}>
+                  <button type="submit" className="text-white  px-2 py-1 rounded" style={{ background: '#ADD8E6' }} onClick={this.props.onLogin}>
                     Log In
                   </button>
                 </div>
@@ -106,11 +106,11 @@ class Login extends React.Component {
             className="rounded-lg mr-20 mt-40 p-12"
             style={{
               background:
-                "linear-gradient(to top,rgba(255, 56, 92,0.5), rgba(255, 56, 92,1))",
+                "linear-gradient(to top,rgba(173, 216, 230,0.5), rgba(173, 216, 230,1))",
             }}
           >
             <h1 className="text-4xl font-bold text-white tracking-wide">
-              Airbnb
+              gasVigilance
             </h1>
             <h1 className="text-5xl py-2 font-bold text-white tracking-wide">
 

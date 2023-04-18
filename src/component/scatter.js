@@ -39,8 +39,6 @@ const ScatterPlot = ({ data, choice }) => {
         y: parseFloat(record[selGas]),
     }))
     console.log(data_xy);
-
-
     return (
         <div>
             <ScatterChart
@@ -51,7 +49,6 @@ const ScatterPlot = ({ data, choice }) => {
                 <CartesianGrid />
                 <XAxis dataKey="x" type="number" domain={['auto', 'auto']} tickFormatter={(tick) => new Date(tick).toLocaleDateString()} name="Date" />
                 <YAxis dataKey="y" type="number" domain={['auto', 'auto']} name="concentration" unit="μg/m3" />
-                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                 <Legend />
                 <Scatter name="Normal Data" data={data_xy} fill="green" />
                 <Scatter name="Anomalies" data={anomalies_xy} fill="red" />
