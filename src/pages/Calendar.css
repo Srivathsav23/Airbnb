@@ -9,11 +9,12 @@
 }
 
 #Calendar1 .fc-button-primary {
-    background-color: #6EB5D6 !important;
+    background-color: #1a237e !important;
 }
 
 #Calendar1 .fc-col-header {
-    color: #6EB5D6 !important;
+    background-color:#1a237e ;
+    color: white !important;
 }
 
 #Calendar1 .fc-daygrid-body {
